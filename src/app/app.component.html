@@ -1,5 +1,5 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
+  <nz-sider class="menu-sidebar" *ngIf="showSideMenu"
             nzCollapsible
             nzWidth="256px"
             nzBreakpoint="md"
@@ -21,9 +21,6 @@
             <a>Monitor</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a href="#">Workplace</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
             <a>Workplace</a>
           </li>
         </ul>
@@ -36,9 +33,12 @@
         </ul>
       </li>
     </ul>
+
+
+    <Button (click)="handleButtonClick()">Çıkış Yap</Button>
   </nz-sider>
-  <nz-layout>
-    <nz-header>
+  <nz-layout >
+    <nz-header *ngIf="showSideMenu">
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
             <span class="trigger"
@@ -50,6 +50,7 @@
     </nz-header>
     <nz-content>
       <div class="inner-content">
+
         <router-outlet></router-outlet>
       </div>
     </nz-content>

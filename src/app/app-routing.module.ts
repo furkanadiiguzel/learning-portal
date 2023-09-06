@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
-  { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) }
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
