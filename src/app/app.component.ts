@@ -8,6 +8,7 @@ import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
   styleUrls: ['./app.component.css']
 })
 
+
 @Component({
   selector: 'nz-demo-drawer-placement',
   template: `
@@ -33,6 +34,9 @@ import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
     </nz-drawer>
   `
 })
+export class AppComponent {
+  title = 'learning-portal';
+}
 export class NzDemoDrawerPlacementComponent {
   visible = false;
   placement: NzDrawerPlacement = 'left';
@@ -43,7 +47,4 @@ export class NzDemoDrawerPlacementComponent {
   close(): void {
     this.visible = false;
   }
-}
-export class AppComponent {
-  title = 'learning-portal';
 }
