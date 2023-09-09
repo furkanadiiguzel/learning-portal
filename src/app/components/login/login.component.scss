@@ -56,21 +56,37 @@ input[type='password']{
     border: none;
     outline: none;
     box-shadow: none;
-    width: 100px;
+    width: 400px;
 }
 
 .fa-eye-slash.btn{
     border: none;
     outline: none;
     box-shadow: none;
+    
 
 }
 
-.img{
+img{
     width: 40px;
     height: 40px;
     object-fit: cover;
     border-radius: 50%;
     position: relative;
 }
+.bordert{
+    border-top: 1px solid rgb(103, 103, 103);
+    position: relative;
+}
+
+.bordert::after{
+    content: "or connect with";
+    position: absolute;
+    top: -13px;
+    left: 35%;
+    background-color: white;
+    padding: 0 8px;
+
+}
+
 

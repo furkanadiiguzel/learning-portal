@@ -8,11 +8,18 @@ import { Component } from '@angular/core';
 export class LoginComponent {
 
   type: string = "password";
+  isText: boolean = false;
+  eyeIcon: string = "fa-eye-slash"
 
   hideShowPass(){
-
-
-
+    this.isText = !this.isText;
+    if(this.isText){
+      this.type = "text";
+      this.eyeIcon = "fa-eye";
+    }else{
+      this.type = "password";
+      this.eyeIcon = "fa-eye-slash";
+    }
   }
-
+  
 }
