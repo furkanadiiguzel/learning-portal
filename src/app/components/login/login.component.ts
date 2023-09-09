@@ -32,5 +32,13 @@ export class LoginComponent {
       this.eyeIcon = "fa-eye-slash";
     }
   }
+  onSubmit(){
+    if(this.loginForm.valid){
+      //send object to the db
+    }
+    else{
+      //throw error
+    }
+  }
   
 }
