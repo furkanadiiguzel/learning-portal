@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import ValidateForm from '../helpers/validateForm';
 
 @Component({
   selector: 'app-login',
@@ -39,25 +40,12 @@ export class LoginComponent {
     }
     else {
       console.log("error")
-      this.validateAllFormsFilled(this.loginForm);
+      ValidateForm.validateAllFormsFilled(this.loginForm);
       alert("Form is invalid");
       //throw error
 
     }
   }
-  private validateAllFormsFilled(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
-      const control = formGroup.get(field);
-      if (control instanceof FormGroup) {
-        control.markAsDirty({ onlySelf: true })
-
-      }
-      else if (control instanceof FormGroup) {
-        this.validateAllFormsFilled(control)
-      }
-    }
-    )
-
-  }
+  
 
 }
