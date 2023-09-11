@@ -34,10 +34,13 @@ export class LoginComponent {
   }
   onSubmit(){
     if(this.loginForm.valid){
+      console.log(this.loginForm.value)
       //send object to the db
     }
     else{
+      console.log("error")
       //throw error
+
     }
   }
   
