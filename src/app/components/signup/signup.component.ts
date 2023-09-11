@@ -11,7 +11,7 @@ export class SignupComponent {
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash"
   signUpForm!: FormGroup
-  constructor(private fb: FormBuilder){ }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
@@ -25,17 +25,44 @@ export class SignupComponent {
 
 
 
-  hideShowPass(){
+  hideShowPass() {
     this.isText = !this.isText;
-    if(this.isText){
+    if (this.isText) {
       this.type = "text";
       this.eyeIcon = "fa-eye";
-    }else{
+    } else {
       this.type = "password";
       this.eyeIcon = "fa-eye-slash";
     }
   }
 
-  
+  private validateAllFormsFilled(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormGroup) {
+        control.markAsDirty({ onlySelf: true })
+
+      }
+      else if (control instanceof FormGroup) {
+        this.validateAllFormsFilled(control)
+      }
+    }
+    )
+
+  }
+
+  onSignup() {
+    if (this.signUpForm.valid) {
+      console.log(this.signUpForm.value)
+      //send object to the db
+    } else {
+      console.log("error")
+      this.validateAllFormsFilled(this.signUpForm);
+      alert("Form is invalid");
+      //throw error
+
+    }
+  }
+
 }
 
