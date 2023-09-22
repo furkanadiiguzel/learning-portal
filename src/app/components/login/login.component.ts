@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import ValidateForm from '../helpers/validateForm';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   eyeIcon: string = "fa-eye-slash";
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -33,10 +34,23 @@ export class LoginComponent {
       this.eyeIcon = "fa-eye-slash";
     }
   }
-  onSubmit() {
+  onLogin() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value)
       //send object to the db
+      this.auth.login(this.loginForm.value)
+      .subscribe({
+        next: (res) => {
+          console.log(res)
+          alert(res.message);
+        },
+        error: (err) => {
+          console.log(err)
+          alert(err?.error.message);
+        }
+      })
+
+
     }
     else {
       console.log("error")
@@ -46,6 +60,6 @@ export class LoginComponent {
 
     }
   }
-  
+
 
 }
