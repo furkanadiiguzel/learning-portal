@@ -18,10 +18,10 @@
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
-                                    <input formControlName="surname" type="text" placeholder="Surname">
+                                    <input formControlName="lastName" type="text" placeholder="Surname">
                                 </div>
                             </div>
-                            <small *ngIf="signUpForm.controls['surname'].dirty && signUpForm.hasError('required','surname')" class="text-danger">*Surname is required</small>
+                            <small *ngIf="signUpForm.controls['lastName'].dirty && signUpForm.hasError('required','lastName')" class="text-danger">*Surname is required</small>
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
