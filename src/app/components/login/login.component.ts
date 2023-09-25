@@ -42,7 +42,6 @@ export class LoginComponent {
       this.auth.login(this.loginForm.value)
       .subscribe({
         next: (res) => {
-          alert(res.message);
           this.loginForm.reset();
           this.router.navigate(['dashboard']);
         },
