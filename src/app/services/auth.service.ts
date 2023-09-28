@@ -1,57 +1,68 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http"
+import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
-
+import {JwtHelperService} from '@auth0/angular-jwt'
+import { TokenApiModel } from '../models/token-api.model';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl:string = "http://localhost:5094/api/User/"
-  private userPayLoad: any;
+  private baseUrl: string = 'https://localhost:7058/api/User/';
+  private userPayload:any;
   constructor(private http: HttpClient, private router: Router) {
-    this.userPayLoad = this.decodedToken();
-  }
+    this.userPayload = this.decodedToken();
+   }
 
-  signUp(userObj:any){
+  signUp(userObj: any) {
     return this.http.post<any>(`${this.baseUrl}register`, userObj)
   }
+
+  signIn(loginObj : any){
+    return this.http.post<any>(`${this.baseUrl}authenticate`,loginObj)
+  }
+
   signOut(){
-    localStorage.removeItem('token')
+    localStorage.clear();
     this.router.navigate(['login'])
-
   }
 
-  login(loginObj:any){
-    return this.http.post<any>(`${this.baseUrl}authenticate`, loginObj)
-  }
   storeToken(tokenValue: string){
-    localStorage.setItem('token',tokenValue)
+    localStorage.setItem('token', tokenValue)
   }
+  storeRefreshToken(tokenValue: string){
+    localStorage.setItem('refreshToken', tokenValue)
+  }
+
   getToken(){
     return localStorage.getItem('token')
   }
+  getRefreshToken(){
+    return localStorage.getItem('refreshToken')
+  }
 
-  IsLoggedIn(): boolean{
+  isLoggedIn(): boolean{
     return !!localStorage.getItem('token')
   }
+
   decodedToken(){
-    const helper = new JwtHelperService();
+    const jwtHelper = new JwtHelperService();
     const token = this.getToken()!;
-    return helper.decodeToken(token);
+    console.log(jwtHelper.decodeToken(token))
+    return jwtHelper.decodeToken(token)
   }
-  getFullNameFromToken(){
-    if(this.userPayLoad){
-      return this.userPayLoad.fullName;
-    }
+
+  getfullNameFromToken(){
+    if(this.userPayload)
+    return this.userPayload.name;
   }
+
   getRoleFromToken(){
-    if(this.userPayLoad){
-      return this.userPayLoad.role;
-    }
+    if(this.userPayload)
+    return this.userPayload.role;
   }
 
-
-
+  renewToken(tokenApi : TokenApiModel){
+    return this.http.post<any>(`${this.baseUrl}refresh`, tokenApi)
+  }
 }
