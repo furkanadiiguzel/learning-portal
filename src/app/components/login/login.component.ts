@@ -43,6 +43,7 @@ export class LoginComponent {
       .subscribe({
         next: (res) => {
           this.loginForm.reset();
+          this.auth.storeToken(res.token);
           this.router.navigate(['dashboard']);
         },
         error: (err) => {
