@@ -35,6 +35,22 @@ export class LoginComponent {
       this.eyeIcon = "fa-eye-slash";
     }
   }
+  public getUserDetailsFromLocalStorage() {
+    let userStr=localStorage.getItem("user");
+
+    if(userStr!=null){
+      return JSON.parse(userStr);
+    }else{
+      this.removeTokenFromStorage();
+      return null;
+    }
+  }
+  public removeTokenFromStorage() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    this.router.navigate(['login']);
+    return true;
+  }
   onLogin() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value)
@@ -44,7 +60,7 @@ export class LoginComponent {
         next: (res) => {
           this.loginForm.reset();
           this.auth.storeToken(res.token);
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['admin']);
         },
         error: (err) => {
           console.log(err)

@@ -12,7 +12,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { ProfileComponent } from './components/profile/profile.component';
 import { UserComponent } from './components/user/user.component';
 import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 import {MatListModule} from '@angular/material/list';
@@ -20,6 +19,16 @@ import { HomeComponent } from './components/home/home.component';
 import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import {MatCardModule} from '@angular/material/card';
 import { WelcomeComponent } from './components/admin/welcome/welcome.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AddCategorysComponent } from './components/admin/add-categorys/add-categorys.component';
+import { AddQuestionComponent } from './components/admin/add-question/add-question.component';
+import { AddQuizzesComponent } from './components/admin/add-quizzes/add-quizzes.component';
+import { UpdateQuizComponent } from './components/admin/update-quiz/update-quiz.component';
+import { ViewCategorysComponent } from './components/admin/view-categorys/view-categorys.component';
+import { QuestionComponent } from './components/admin/question/question.component';
+import { ViewQuestionComponent } from './components/admin/view-question/view-question.component';
+import { ViewQuizComponent } from './components/admin/view-quiz/view-quiz.component';
+import { ViewQuizzesComponent } from './components/admin/view-quizzes/view-quizzes.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +37,22 @@ import { WelcomeComponent } from './components/admin/welcome/welcome.component';
     SignupComponent,
     DashboardComponent,
     NavbarComponent,
-    ProfileComponent,
     UserComponent,
     UserDashboardComponent,
     HomeComponent,
     SidebarComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ProfileComponent,
+    AddCategorysComponent,
+    AddQuestionComponent,
+    AddQuizzesComponent,
+    UpdateQuizComponent,
+    ViewCategorysComponent,
+    QuestionComponent,
+    ViewQuestionComponent,
+    ViewQuizComponent,
+    ViewQuizzesComponent,
+
   ],
   imports: [
     BrowserModule,
