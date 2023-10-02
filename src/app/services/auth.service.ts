@@ -52,6 +52,35 @@ export class AuthService {
       return this.userPayLoad.role;
     }
   }
+  public getUserDetailsFromLocalStorage() {
+    let userStr=localStorage.getItem("user");
+
+    if(userStr!=null){
+      return JSON.parse(userStr);
+    }else{
+      this.removeTokenFromStorage();
+      return null;
+    }
+  }
+
+
+  /**
+   * getUserRole
+   */
+  public getUserRole() {
+    let user=this.getUserDetailsFromLocalStorage();
+
+    return user.authorities[0].authority;
+
+  }
+  public removeTokenFromStorage() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    this.router.navigate(['login']);
+    return true;
+  }
+
+
 
 
 

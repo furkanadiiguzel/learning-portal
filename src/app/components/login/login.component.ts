@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+
   type: string = "password";
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash";
@@ -53,31 +54,36 @@ export class LoginComponent {
   }
   onLogin() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value)
-      //send object to the db
-      this.auth.login(this.loginForm.value)
-      .subscribe({
-        next: (res) => {
-          this.loginForm.reset();
-          this.auth.storeToken(res.token);
-          this.router.navigate(['admin']);
-        },
-        error: (err) => {
-          console.log(err)
-          alert(err?.error.message);
-        }
-      })
+      if (this.auth.getUserRole() == "ADMIN") {
+
+        //admin dash
+        //window.location.href = "/admin";
+        this.router.navigate(['admin']);
+      } else if (this.auth.getUserRole() == "NORMAL") {
+
+        //usr dash
+      //  window.location.href = "/user-dashboard";
+      this.router.navigate(['user-dashboard/0']);
+
+      }
+
+      } else {
+        console.log("error")
+        ValidateForm.validateAllFormsFilled(this.loginForm);
+        alert("Form is invalid");
+        //throw error
+
+      }
+
+
 
 
     }
-    else {
-      console.log("error")
-      ValidateForm.validateAllFormsFilled(this.loginForm);
-      alert("Form is invalid");
-      //throw error
 
-    }
+
   }
 
 
-}
+
+
+

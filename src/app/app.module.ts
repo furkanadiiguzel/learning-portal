@@ -27,6 +27,14 @@ import { UpdateQuizComponent } from './components/admin/update-quiz/update-quiz.
 import { AddQuestionComponent } from './components/admin/add-question/add-question.component';
 import { ViewQuestionComponent } from './components/admin/view-question/view-question.component';
 import { AddCategorysComponent } from './components/admin/add-categorys/add-categorys.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule} from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select'; // Import MatSelectModule
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { LoadQuizComponent } from './components/user/load-quiz/load-quiz.component';
+import { PrestartQuizComponent } from './components/user/prestart-quiz/prestart-quiz.component';
+import { StartQuizComponent } from './components/user/start-quiz/start-quiz.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +55,10 @@ import { AddCategorysComponent } from './components/admin/add-categorys/add-cate
     UpdateQuizComponent,
     AddQuestionComponent,
     ViewQuestionComponent,
-    AddCategorysComponent
+    AddCategorysComponent,
+    LoadQuizComponent,
+    PrestartQuizComponent,
+    StartQuizComponent
 
 
   ],
@@ -61,7 +72,12 @@ import { AddCategorysComponent } from './components/admin/add-categorys/add-cate
     MatIconModule,
     MatButtonModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    NgxUiLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
