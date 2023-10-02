@@ -20,15 +20,13 @@ import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import {MatCardModule} from '@angular/material/card';
 import { WelcomeComponent } from './components/admin/welcome/welcome.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { AddCategorysComponent } from './components/admin/add-categorys/add-categorys.component';
-import { AddQuestionComponent } from './components/admin/add-question/add-question.component';
+import { ViewCategorysComponent } from './components/admin/view-categorys/view-categorys.component';
+import { ViewQuizzesComponent } from './components/admin/view-quizzes/view-quizzes.component';
 import { AddQuizzesComponent } from './components/admin/add-quizzes/add-quizzes.component';
 import { UpdateQuizComponent } from './components/admin/update-quiz/update-quiz.component';
-import { ViewCategorysComponent } from './components/admin/view-categorys/view-categorys.component';
-import { QuestionComponent } from './components/admin/question/question.component';
+import { AddQuestionComponent } from './components/admin/add-question/add-question.component';
 import { ViewQuestionComponent } from './components/admin/view-question/view-question.component';
-import { ViewQuizComponent } from './components/admin/view-quiz/view-quiz.component';
-import { ViewQuizzesComponent } from './components/admin/view-quizzes/view-quizzes.component';
+import { AddCategorysComponent } from './components/admin/add-categorys/add-categorys.component';
 
 @NgModule({
   declarations: [
@@ -43,15 +41,14 @@ import { ViewQuizzesComponent } from './components/admin/view-quizzes/view-quizz
     SidebarComponent,
     WelcomeComponent,
     ProfileComponent,
-    AddCategorysComponent,
-    AddQuestionComponent,
+    ViewCategorysComponent,
+    ViewQuizzesComponent,
     AddQuizzesComponent,
     UpdateQuizComponent,
-    ViewCategorysComponent,
-    QuestionComponent,
+    AddQuestionComponent,
     ViewQuestionComponent,
-    ViewQuizComponent,
-    ViewQuizzesComponent,
+    AddCategorysComponent
+
 
   ],
   imports: [
