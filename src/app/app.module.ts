@@ -16,7 +16,6 @@ import { UserComponent } from './components/user/user.component';
 import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './components/home/home.component';
-import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import {MatCardModule} from '@angular/material/card';
 import { WelcomeComponent } from './components/admin/welcome/welcome.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -31,11 +30,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select'; // Import MatSelectModule
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { LoadQuizComponent } from './components/user/load-quiz/load-quiz.component';
 import { PrestartQuizComponent } from './components/user/prestart-quiz/prestart-quiz.component';
 import { StartQuizComponent } from './components/user/start-quiz/start-quiz.component';
-
+import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,8 @@ import { StartQuizComponent } from './components/user/start-quiz/start-quiz.comp
     AddCategorysComponent,
     LoadQuizComponent,
     PrestartQuizComponent,
-    StartQuizComponent
+    StartQuizComponent,
+    SidebarComponent
 
 
   ],
@@ -77,7 +79,20 @@ import { StartQuizComponent } from './components/user/start-quiz/start-quiz.comp
     FormsModule,
     MatSelectModule,
     MatSlideToggleModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
+    MatSidenavModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSelectModule,
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

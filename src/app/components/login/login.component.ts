@@ -54,16 +54,14 @@ export class LoginComponent {
   }
   onLogin() {
     if (this.loginForm.valid) {
-      if (this.auth.getUserRole() == "ADMIN") {
+      if (this.auth.getUserRole() == "Admin") {
 
-        //admin dash
-        //window.location.href = "/admin";
+
         this.router.navigate(['admin']);
       } else if (this.auth.getUserRole() == "NORMAL") {
 
-        //usr dash
-      //  window.location.href = "/user-dashboard";
-      this.router.navigate(['user-dashboard/0']);
+
+      this.router.navigate(['user-dashboard']);
 
       }
 
