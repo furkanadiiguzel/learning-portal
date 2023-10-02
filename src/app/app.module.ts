@@ -12,13 +12,28 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UserComponent } from './components/user/user.component';
+import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
+import {MatListModule} from '@angular/material/list';
+import { HomeComponent } from './components/home/home.component';
+import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
+import {MatCardModule} from '@angular/material/card';
+import { WelcomeComponent } from './components/admin/welcome/welcome.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent,
+    UserComponent,
+    UserDashboardComponent,
+    HomeComponent,
+    SidebarComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +43,9 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
