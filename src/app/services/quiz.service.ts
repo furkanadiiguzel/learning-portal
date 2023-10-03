@@ -52,7 +52,7 @@ qid:any   */
   public getQuizzessByCategory(cid:any) {
 
     return this._http.get(`${baseUrl}/quiz/category/${cid}`)
-
+    
   }
 
 
