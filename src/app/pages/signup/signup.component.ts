@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SingupComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   constructor(private userService:UserService,private _snackBar: MatSnackBar) {
 

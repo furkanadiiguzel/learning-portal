@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from '../app/pages/login/login.component';
-import { SingupComponent } from '../app/pages/signup/signup.component';
+import { SignupComponent } from '../app/pages/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from '../app/pages/admin/dashboard/dashboard.component';
@@ -39,7 +39,7 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
   declarations: [
     AppComponent,
     LoginComponent,
-    SingupComponent,
+    SignupComponent,
     DashboardComponent,
     NavbarComponent,
     UserDashboardComponent,
